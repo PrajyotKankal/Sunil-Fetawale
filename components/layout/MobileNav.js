@@ -21,41 +21,68 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
         <AnimatePresence>
             {isOpen && (
                 <>
-                    {/* Backdrop */}
+                    {/* FULL SCREEN SOLID WHITE OVERLAY - This is the main menu container */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed inset-0 bg-warm-900/90 backdrop-blur-md z-40 md:hidden"
-                        onClick={onClose}
-                    />
-
-                    {/* Full Screen Menu */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="fixed inset-0 bg-white z-50 md:hidden flex flex-col"
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ type: 'tween', duration: 0.3 }}
+                        style={{
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            width: '100vw',
+                            height: '100vh',
+                            backgroundColor: '#FFFFFF',
+                            zIndex: 9999,
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
+                        className="md:hidden"
                     >
-                        {/* Header with Brand */}
-                        <div className="flex items-center justify-between px-6 py-6 border-b border-warm-200">
-                            <div className="flex flex-col">
-                                <span className="font-serif text-2xl text-maroon-600 tracking-tight">
+                        {/* Header with Brand and Close Button */}
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            padding: '24px',
+                            borderBottom: '1px solid #E5E0DA',
+                            backgroundColor: '#FFFFFF',
+                        }}>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{
+                                    fontFamily: 'serif',
+                                    fontSize: '24px',
+                                    color: '#7B2D3A',
+                                    letterSpacing: '-0.02em',
+                                }}>
                                     Sunil Fetawale
                                 </span>
-                                <span className="text-[10px] text-warm-600 tracking-[0.15em] uppercase">
+                                <span style={{
+                                    fontSize: '10px',
+                                    color: '#6B6356',
+                                    letterSpacing: '0.15em',
+                                    textTransform: 'uppercase',
+                                }}>
                                     Wedding Wear & Accessories
                                 </span>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="p-3 rounded-full bg-warm-100 text-warm-700 hover:bg-maroon-100 hover:text-maroon-600 transition-colors"
+                                style={{
+                                    padding: '12px',
+                                    borderRadius: '50%',
+                                    backgroundColor: '#F5F3F0',
+                                    color: '#4A4540',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                }}
                                 aria-label="Close menu"
                             >
                                 <svg
-                                    className="w-6 h-6"
+                                    style={{ width: '24px', height: '24px' }}
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     strokeWidth="2"
@@ -70,54 +97,73 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                             </button>
                         </div>
 
-                        {/* Navigation Links - Centered with lots of breathing room */}
-                        <nav className="flex-1 flex flex-col justify-center px-8">
-                            <motion.ul
-                                className="space-y-2"
-                                initial="hidden"
-                                animate="show"
-                                variants={{
-                                    hidden: { opacity: 0 },
-                                    show: {
-                                        opacity: 1,
-                                        transition: {
-                                            staggerChildren: 0.08,
-                                            delayChildren: 0.1,
-                                        },
-                                    },
-                                }}
-                            >
-                                {navigation.map((item) => (
+                        {/* Navigation Links - Takes up remaining space */}
+                        <nav style={{
+                            flex: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            padding: '0 32px',
+                            backgroundColor: '#FFFFFF',
+                        }}>
+                            <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                                {navigation.map((item, index) => (
                                     <motion.li
                                         key={item.name}
-                                        variants={{
-                                            hidden: { y: 20, opacity: 0 },
-                                            show: { y: 0, opacity: 1 }
-                                        }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1 }}
                                     >
                                         <Link
                                             href={item.href}
                                             onClick={onClose}
-                                            className="block py-5 text-2xl font-serif text-warm-800 hover:text-maroon-600 transition-colors border-b border-warm-200/50 text-center"
+                                            style={{
+                                                display: 'block',
+                                                padding: '20px 0',
+                                                fontSize: '28px',
+                                                fontFamily: 'serif',
+                                                color: '#3D3A36',
+                                                textDecoration: 'none',
+                                                textAlign: 'center',
+                                                borderBottom: '1px solid rgba(229, 224, 218, 0.5)',
+                                            }}
                                         >
                                             {item.name}
                                         </Link>
                                     </motion.li>
                                 ))}
-                            </motion.ul>
+                            </ul>
                         </nav>
 
                         {/* Footer with WhatsApp CTA */}
-                        <div className="px-6 py-8 bg-white border-t border-warm-200">
+                        <div style={{
+                            padding: '24px',
+                            backgroundColor: '#FFFFFF',
+                            borderTop: '1px solid #E5E0DA',
+                        }}>
                             <a
                                 href="https://wa.me/917020708747"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={onClose}
-                                className="w-full inline-flex items-center justify-center space-x-3 px-6 py-4 text-lg font-medium text-white bg-maroon-600 hover:bg-maroon-700 rounded-xl transition-all duration-300 active:scale-95 shadow-lg"
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '12px',
+                                    width: '100%',
+                                    padding: '16px 24px',
+                                    fontSize: '18px',
+                                    fontWeight: '500',
+                                    color: '#FFFFFF',
+                                    backgroundColor: '#7B2D3A',
+                                    borderRadius: '12px',
+                                    textDecoration: 'none',
+                                    boxShadow: '0 4px 12px rgba(123, 45, 58, 0.3)',
+                                }}
                             >
                                 <svg
-                                    className="w-6 h-6"
+                                    style={{ width: '24px', height: '24px' }}
                                     fill="currentColor"
                                     viewBox="0 0 24 24"
                                 >
@@ -126,8 +172,12 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                                 <span>WhatsApp Inquiry</span>
                             </a>
 
-                            {/* Trust indicator */}
-                            <p className="text-center text-sm text-warm-500 mt-4">
+                            <p style={{
+                                textAlign: 'center',
+                                fontSize: '14px',
+                                color: '#8A8279',
+                                marginTop: '16px',
+                            }}>
                                 Traditional Craftsmanship Since Generations
                             </p>
                         </div>
