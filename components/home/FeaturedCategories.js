@@ -86,13 +86,13 @@ export default function FeaturedCategories() {
                     </motion.p>
                 </div>
 
-                {/* Category Cards Grid */}
+                {/* Category Cards Grid - 2 columns on mobile */}
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+                    className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
                 >
                     {categories.map((category) => (
                         <motion.div
@@ -104,19 +104,25 @@ export default function FeaturedCategories() {
                                 className="group block h-full"
                             >
                                 <div className="h-full bg-white border border-warm-200/80 rounded-lg overflow-hidden transition-all duration-400 hover:border-warm-300 hover:-translate-y-1">
-                                    {/* Category Image */}
-                                    <div className="relative aspect-[4/3] bg-ivory-100 overflow-hidden">
+                                    {/* Category Image - More compact on mobile */}
+                                    <div className="relative aspect-square md:aspect-[4/3] bg-ivory-100 overflow-hidden">
                                         <Image
                                             src={category.image}
                                             alt={category.name}
                                             fill
                                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-warm-900/10 to-transparent" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-warm-900/30 to-transparent" />
+                                        {/* Category name overlay on mobile */}
+                                        <div className="absolute bottom-0 left-0 right-0 p-3 md:hidden">
+                                            <h3 className="font-serif text-lg text-white drop-shadow-lg">
+                                                {category.name}
+                                            </h3>
+                                        </div>
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="p-6 md:p-8">
+                                    {/* Content - Hidden on mobile, shown on tablet+ */}
+                                    <div className="hidden md:block p-6 md:p-8">
                                         <h3 className="font-serif text-2xl text-warm-800 mb-3 group-hover:text-maroon-600 transition-colors duration-350">
                                             {category.name}
                                         </h3>

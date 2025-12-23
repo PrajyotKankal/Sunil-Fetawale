@@ -320,7 +320,7 @@
 
     /* Smaller section spacing on mobile */
     .section-spacing {
-        @apply py-12;
+        @apply py-8;
     }
 
     /* Optimized typography for mobile */

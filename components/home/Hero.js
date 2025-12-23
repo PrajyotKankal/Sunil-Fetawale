@@ -51,7 +51,7 @@ export default function Hero() {
                     {/* Main Headline - Hero typography */}
                     <motion.h1
                         variants={itemVariants}
-                        className="font-display text-5xl md:text-6xl lg:text-7xl text-warm-800 mb-6 tracking-tight leading-tight"
+                        className="font-display text-4xl md:text-6xl lg:text-7xl text-warm-800 mb-4 md:mb-6 tracking-tight leading-tight"
                     >
                         Wedding Wear <br className="hidden md:block" />
                         <span className="text-maroon-600">for Bride & Groom</span>
@@ -60,7 +60,7 @@ export default function Hero() {
                     {/* Supporting text - refined single paragraph */}
                     <motion.p
                         variants={itemVariants}
-                        className="text-lg md:text-xl text-warm-600 leading-relaxed max-w-3xl mx-auto mb-12"
+                        className="text-base md:text-xl text-warm-600 leading-relaxed max-w-3xl mx-auto mb-8 md:mb-12"
                     >
                         Custom-made feta and dupatta crafted to match your head size, wedding attire, and ceremonial style — including complete bride–groom combinations designed with tradition and precision.
                     </motion.p>
@@ -112,10 +112,10 @@ export default function Hero() {
                     {/* Trust indicators - subtle */}
                     <motion.div
                         variants={itemVariants}
-                        className="mt-16 pt-12 border-t border-warm-200/50"
+                        className="mt-10 md:mt-16 pt-8 md:pt-12 border-t border-warm-200/50"
                     >
-                        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 text-sm text-warm-500">
-                            <div className="flex items-center space-x-2">
+                        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-12 text-xs md:text-sm text-warm-500">
+                            <div className="flex items-center space-x-1.5 md:space-x-2">
                                 <svg className="w-5 h-5 text-gold-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                                 </svg>
