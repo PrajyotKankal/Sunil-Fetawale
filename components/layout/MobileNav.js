@@ -41,12 +41,12 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                             damping: 25,
                             stiffness: 250
                         }}
-                        className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl z-50 md:hidden"
+                        className="fixed inset-0 bg-white shadow-2xl z-50 md:hidden"
                     >
                         <div className="flex flex-col h-full">
                             {/* Header */}
-                            <div className="flex items-center justify-between px-5 py-4 border-b border-warm-200 bg-ivory-50">
-                                <span className="font-display text-xl text-maroon-600">
+                            <div className="flex items-center justify-between px-6 py-5 border-b border-warm-200 bg-ivory-50">
+                                <span className="font-serif text-xl text-maroon-600 tracking-wide">
                                     Menu
                                 </span>
                                 <button
@@ -71,9 +71,9 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                             </div>
 
                             {/* Navigation Links */}
-                            <nav className="flex-1 px-4 py-6 overflow-y-auto">
+                            <nav className="flex-1 px-5 py-8 overflow-y-auto bg-white">
                                 <motion.ul
-                                    className="space-y-2"
+                                    className="space-y-1"
                                     initial="hidden"
                                     animate="show"
                                     variants={{
@@ -98,7 +98,7 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                                             <Link
                                                 href={item.href}
                                                 onClick={onClose}
-                                                className="block px-4 py-3.5 rounded-lg text-base font-medium text-warm-800 hover:bg-maroon-50 hover:text-maroon-600 transition-all duration-300 active:scale-95"
+                                                className="block px-4 py-4 rounded-lg text-lg font-medium text-warm-800 hover:bg-maroon-50 hover:text-maroon-600 transition-all duration-300 active:scale-95 border-b border-warm-100 last:border-0"
                                             >
                                                 {item.name}
                                             </Link>
@@ -107,14 +107,14 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                                 </motion.ul>
                             </nav>
 
-                            {/* WhatsApp CTA */}
-                            <div className="p-4 border-t border-warm-200 bg-warm-50">
+                            {/* WhatsApp CTA - Brand colors */}
+                            <div className="p-5 border-t border-warm-200 bg-ivory-50">
                                 <a
                                     href="https://wa.me/917020708747"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     onClick={onClose}
-                                    className="w-full inline-flex items-center justify-center space-x-2 px-5 py-3.5 text-base font-medium text-white bg-[#25D366] hover:bg-[#1EAE54] rounded-lg transition-all duration-300 active:scale-95 shadow-sm"
+                                    className="w-full inline-flex items-center justify-center space-x-2 px-5 py-4 text-base font-medium text-white bg-maroon-600 hover:bg-maroon-700 rounded-lg transition-all duration-300 active:scale-95 shadow-sm"
                                 >
                                     <svg
                                         className="w-5 h-5"
