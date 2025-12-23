@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import MobileNav from './MobileNav'
 
 export default function Header() {
@@ -16,21 +17,21 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 z-50 bg-ivory-50/80 backdrop-blur-md border-b border-warm-200/30">
-            <nav className="container-custom py-5 md:py-6">
+            <nav className="container-custom py-4 md:py-5">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link
                         href="/"
                         className="flex items-center group"
                     >
-                        <div className="flex flex-col">
-                            <span className="font-display text-2xl md:text-3xl text-maroon-600 tracking-tight transition-colors duration-350 group-hover:text-maroon-700">
-                                Sunil Fetawale
-                            </span>
-                            <span className="text-xs md:text-sm text-warm-500 tracking-widest uppercase font-sans font-light">
-                                Wedding Wear & Accessories
-                            </span>
-                        </div>
+                        <Image
+                            src="/logo.png"
+                            alt="Sunil Fetawale - Wedding Wear & Accessories"
+                            width={180}
+                            height={50}
+                            className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
