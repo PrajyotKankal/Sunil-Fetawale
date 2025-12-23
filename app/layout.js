@@ -117,7 +117,6 @@ export const viewport = {
 
 import { CartProvider } from '@/context/CartContext'
 import CartDrawer from '@/components/layout/CartDrawer'
-import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp'
 
 // ... (Metadata export remains unchanged)
 
@@ -151,9 +150,6 @@ export default function RootLayout({ children }) {
 
                     {/* Global Cart Drawer */}
                     <CartDrawer />
-
-                    {/* Floating WhatsApp Button */}
-                    <FloatingWhatsApp />
                 </CartProvider>
             </body>
         </html>
