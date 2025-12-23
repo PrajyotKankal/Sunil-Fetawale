@@ -27,7 +27,7 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 bg-warm-900/50 backdrop-blur-sm z-40 md:hidden"
+                        className="fixed inset-0 bg-warm-900/90 backdrop-blur-md z-40 md:hidden"
                         onClick={onClose}
                     />
 
