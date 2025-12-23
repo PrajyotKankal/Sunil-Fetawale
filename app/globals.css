@@ -1,0 +1,444 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================
+   Google Fonts Import
+   =================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap');
+
+/* ===================================
+   CSS Custom Properties
+   =================================== */
+:root {
+    /* Colors */
+    --color-primary: #8B2635;
+    --color-accent: #D4AF37;
+    --color-surface: #E8D5C4;
+    --color-background: #FEFDFB;
+    --color-text: #292524;
+    --color-text-light: #57534E;
+
+    /* Shadows - Soft, elegant */
+    --shadow-soft: 0 4px 8px 0 rgba(139, 38, 53, 0.05), 0 2px 4px 0 rgba(139, 38, 53, 0.04);
+    --shadow-soft-md: 0 6px 12px 0 rgba(139, 38, 53, 0.06), 0 2px 4px 0 rgba(139, 38, 53, 0.04);
+
+    /* Transitions */
+    --transition-elegant: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================
+   Base Layer - Resets & Defaults
+   =================================== */
+@layer base {
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Respect user motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    /* Body defaults */
+    body {
+        @apply bg-ivory-50 text-warm-800 font-sans antialiased;
+        font-feature-settings: 'kern' 1, 'liga' 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Headings - Serif with proper spacing */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-serif text-warm-800 tracking-tight;
+        font-feature-settings: 'kern' 1;
+    }
+
+    h1 {
+        @apply text-5xl leading-tight;
+    }
+
+    h2 {
+        @apply text-4xl leading-snug;
+    }
+
+    h3 {
+        @apply text-3xl leading-snug;
+    }
+
+    h4 {
+        @apply text-2xl leading-normal;
+    }
+
+    /* Paragraphs */
+    p {
+        @apply leading-relaxed;
+    }
+
+    /* Links */
+    a {
+        @apply text-maroon-500 transition-colors duration-300;
+    }
+
+    a:hover {
+        @apply text-maroon-600;
+    }
+
+    /* Focus styles - accessible */
+    *:focus-visible {
+        @apply outline-2 outline-offset-2 outline-maroon-500;
+    }
+
+    /* Images */
+    img {
+        @apply max-w-full h-auto;
+    }
+
+    /* Remove default button styles */
+    button {
+        @apply font-sans;
+    }
+
+    /* Input defaults */
+    input,
+    textarea,
+    select {
+        @apply font-sans;
+    }
+}
+
+/* ===================================
+   Component Layer - Reusable Patterns
+   =================================== */
+@layer components {
+
+    /* Container with proper padding */
+    .container-custom {
+        @apply w-full mx-auto px-6 md:px-8 lg:px-12;
+        max-width: 1400px;
+    }
+
+    /* Section spacing */
+    .section-spacing {
+        @apply py-16 md:py-24 lg:py-32;
+    }
+
+    /* Text container - optimal reading width */
+    .text-container {
+        @apply max-w-prose mx-auto;
+    }
+
+    /* Button base */
+    .btn {
+        @apply inline-flex items-center justify-center px-8 py-3.5 rounded-lg font-medium text-base transition-all duration-300 ease-elegant;
+    }
+
+    /* Button variants */
+    .btn-primary {
+        @apply btn bg-maroon-500 text-white shadow-soft-sm hover:bg-maroon-600 hover:shadow-soft;
+    }
+
+    .btn-secondary {
+        @apply btn bg-ivory-500 text-warm-800 shadow-soft-xs hover:bg-ivory-600 hover:shadow-soft-sm;
+    }
+
+    .btn-ghost {
+        @apply btn bg-transparent text-maroon-500 hover:bg-maroon-50;
+    }
+
+    .btn-whatsapp {
+        @apply btn bg-[#25D366] text-white hover:bg-[#1EAE54] shadow-soft-sm hover:shadow-soft;
+    }
+
+    /* Card base */
+    .card {
+        @apply bg-white rounded-lg overflow-hidden transition-all duration-350 ease-elegant;
+    }
+
+    /* Card variants */
+    .card-product {
+        @apply card border border-warm-200 shadow-soft hover:shadow-soft-md;
+    }
+
+    .card-featured {
+        @apply card bg-ivory-50 shadow-soft-lg hover:shadow-soft-xl rounded-xl;
+    }
+
+    /* Product code badge */
+    .badge-product-code {
+        @apply inline-block px-3 py-1 bg-gold-100 text-gold-700 rounded-md text-sm font-mono;
+    }
+
+    /* Section header */
+    .section-header {
+        @apply text-center mb-16 md:mb-20;
+    }
+
+    .section-title {
+        @apply font-serif text-4xl md:text-5xl text-warm-800 mb-4;
+    }
+
+    .section-subtitle {
+        @apply text-lg text-warm-600 max-w-prose mx-auto;
+    }
+}
+
+/* ===================================
+   Utility Layer - Helper Classes
+   =================================== */
+@layer utilities {
+
+    /* Text balance for headings */
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    /* Better text rendering */
+    .text-render-optimized {
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Aspect ratios */
+    .aspect-square {
+        aspect-ratio: 1 / 1;
+    }
+
+    .aspect-portrait {
+        aspect-ratio: 3 / 4;
+    }
+
+    .aspect-landscape {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Gradient text (use sparingly) */
+    .text-gradient-gold {
+        @apply bg-gradient-to-r from-gold-600 to-gold-400 bg-clip-text text-transparent;
+    }
+}
+
+/* ===================================
+   Animation Keyframes
+   =================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation classes */
+.animate-fade-in {
+    animation: fadeIn 0.4s var(--transition-elegant);
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.5s var(--transition-elegant);
+}
+
+
+.animate-scale-in {
+    animation: scaleIn 0.3s var(--transition-elegant);
+}
+
+/* ===================================
+   Mobile Optimizations
+   =================================== */
+
+/* Improve tap targets on mobile */
+@media (max-width: 768px) {
+
+    /* Minimum touch target size - 44x44px for accessibility */
+    button,
+    a,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Better spacing for mobile */
+    .container-custom {
+        @apply px-4;
+    }
+
+    /* Smaller section spacing on mobile */
+    .section-spacing {
+        @apply py-12;
+    }
+
+    /* Optimized typography for mobile */
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    /* Better button sizing on mobile */
+    .btn {
+        @apply px-6 py-3 text-sm;
+        /* width: 100%; - Removed to allow natural width */
+    }
+
+    /* Stack buttons vertically on mobile */
+    .btn+.btn {
+        @apply mt-3;
+    }
+
+    /* Product cards - full width on mobile */
+    .card-product {
+        @apply mb-4;
+    }
+
+    /* Increase line height for better mobile reading */
+    p {
+        @apply leading-relaxed text-base;
+    }
+
+    /* Hide desktop-only elements */
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Better image loading on mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Remove hover effects on touch devices */
+    *:hover {
+        transition: none;
+    }
+
+    /* Make tap areas larger */
+    a,
+    button {
+        padding: 0.5rem;
+    }
+
+    /* Disable hover animations on touch devices */
+    .group:hover {
+        transform: none;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+
+    /* Reduce vertical spacing in landscape */
+    .section-spacing {
+        @apply py-8;
+    }
+
+    /* Smaller fonts in landscape */
+    h1 {
+        @apply text-2xl;
+    }
+}
+
+/* Small mobile devices (< 375px) */
+@media (max-width: 374px) {
+
+    /* Extra small screens */
+    .container-custom {
+        @apply px-3;
+    }
+
+    h1 {
+        @apply text-2xl;
+    }
+
+    .btn {
+        @apply px-4 py-2.5 text-sm;
+    }
+}
+
+/* Prevent zoom on focus for iOS */
+@supports (-webkit-touch-callout: none) {
+
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+
+    .container-custom {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+}
