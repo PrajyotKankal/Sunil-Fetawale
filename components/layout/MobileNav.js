@@ -37,7 +37,7 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 bg-ivory-50 z-50 md:hidden flex flex-col"
+                        className="fixed inset-0 bg-white z-50 md:hidden flex flex-col"
                     >
                         {/* Header with Brand */}
                         <div className="flex items-center justify-between px-6 py-6 border-b border-warm-200">
