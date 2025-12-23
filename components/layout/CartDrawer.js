@@ -69,7 +69,7 @@ export default function CartDrawer() {
                             <div className="p-6 border-b border-warm-100 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-10">
                                 <div>
                                     <h2 className="font-serif text-2xl text-warm-900">Your Inquiry</h2>
-                                    <p className="text-sm text-warm-500 mt-1">{cart.length} items selected</p>
+                                    <p className="text-sm text-warm-600 mt-1">{cart.length} items selected</p>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     {cart.length > 0 && (
@@ -101,7 +101,7 @@ export default function CartDrawer() {
                                             </svg>
                                         </div>
                                         <h3 className="text-xl font-serif text-warm-900 mb-2">Your list is empty</h3>
-                                        <p className="text-warm-500 mb-8 max-w-[200px] leading-relaxed">Browse products and add them here to send a bulk inquiry.</p>
+                                        <p className="text-warm-600 mb-8 max-w-[200px] leading-relaxed">Browse products and add them here to send a bulk inquiry.</p>
                                         <button
                                             onClick={() => setIsOpen(false)}
                                             className="px-6 py-3 bg-warm-100 text-warm-800 rounded-lg font-medium hover:bg-warm-200 transition-colors"
@@ -157,7 +157,7 @@ export default function CartDrawer() {
                                                 <Link
                                                     href={`/products/${item.slug}`}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="text-xs text-warm-500 hover:text-maroon-600 hover:underline flex items-center gap-1 mt-2"
+                                                    className="text-xs text-warm-600 hover:text-maroon-600 hover:underline flex items-center gap-1 mt-2"
                                                 >
                                                     View Details
                                                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

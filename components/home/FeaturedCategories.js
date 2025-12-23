@@ -62,7 +62,7 @@ export default function FeaturedCategories() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-sm md:text-base text-warm-600 tracking-wider uppercase font-medium mb-4"
+                        className="text-sm md:text-base text-warm-700 tracking-wider uppercase font-medium mb-4"
                     >
                         Our Collections
                     </motion.p>
@@ -112,7 +112,7 @@ export default function FeaturedCategories() {
                                             fill
                                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-warm-900/30 to-transparent" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-warm-900/70 via-warm-900/20 to-transparent" />
                                         {/* Category name overlay on mobile */}
                                         <div className="absolute bottom-0 left-0 right-0 p-3 md:hidden">
                                             <h3 className="font-serif text-lg text-white drop-shadow-lg">

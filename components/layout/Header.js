@@ -27,7 +27,7 @@ export default function Header() {
                             <span className="font-display text-2xl md:text-3xl text-maroon-600 tracking-tight transition-colors duration-350 group-hover:text-maroon-700">
                                 Sunil Fetawale
                             </span>
-                            <span className="text-xs md:text-sm text-warm-500 tracking-widest uppercase font-sans font-light">
+                            <span className="text-[10px] md:text-xs text-warm-600 tracking-[0.2em] uppercase font-sans">
                                 Wedding Wear & Accessories
                             </span>
                         </div>

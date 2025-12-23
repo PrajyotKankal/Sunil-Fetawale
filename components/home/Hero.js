@@ -43,7 +43,7 @@ export default function Hero() {
                     {/* Overline - small descriptor */}
                     <motion.p
                         variants={itemVariants}
-                        className="text-xs md:text-sm text-warm-500 tracking-wider uppercase font-medium mb-6 opacity-70"
+                        className="text-xs md:text-sm text-warm-700 tracking-wider uppercase font-medium mb-6"
                     >
                         Traditional Craftsmanship
                     </motion.p>
@@ -75,7 +75,7 @@ export default function Hero() {
                             href="https://wa.me/917020708747" // Update with actual number
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center space-x-2 px-8 py-4 bg-maroon-600 text-white rounded-lg font-medium text-base hover:bg-maroon-700 transition-colors duration-350 min-w-[200px] justify-center"
+                            className="inline-flex items-center space-x-2 px-6 py-3 md:px-8 md:py-4 bg-maroon-600 text-white rounded-lg font-medium text-sm md:text-base hover:bg-maroon-700 transition-colors duration-350 min-w-0 md:min-w-[200px] justify-center"
                         >
                             <svg
                                 className="w-5 h-5"
@@ -90,7 +90,7 @@ export default function Hero() {
                         {/* Secondary CTA - View Collection */}
                         <Link
                             href="/products"
-                            className="inline-flex items-center space-x-2 px-8 py-4 bg-transparent text-maroon-600 border border-maroon-300 rounded-lg font-medium text-base hover:bg-maroon-50 hover:border-maroon-400 transition-all duration-350 min-w-[200px] justify-center"
+                            className="inline-flex items-center space-x-2 px-6 py-3 md:px-8 md:py-4 bg-transparent text-maroon-600 border border-maroon-300 rounded-lg font-medium text-sm md:text-base hover:bg-maroon-50 hover:border-maroon-400 transition-all duration-350 min-w-0 md:min-w-[200px] justify-center"
                         >
                             <span>View Collection</span>
                             <svg
@@ -114,7 +114,7 @@ export default function Hero() {
                         variants={itemVariants}
                         className="mt-10 md:mt-16 pt-8 md:pt-12 border-t border-warm-200/50"
                     >
-                        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-12 text-xs md:text-sm text-warm-500">
+                        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-12 text-xs md:text-sm text-warm-700">
                             <div className="flex items-center space-x-1.5 md:space-x-2">
                                 <svg className="w-5 h-5 text-gold-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />

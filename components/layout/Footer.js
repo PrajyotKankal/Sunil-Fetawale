@@ -20,7 +20,7 @@ export default function Footer() {
                                 Sunil Fetawale
                             </span>
                         </Link>
-                        <p className="text-sm text-warm-500 leading-relaxed">
+                        <p className="text-sm text-warm-600 leading-relaxed">
                             Trusted supplier of premium Indian wedding accessories since generations.
                         </p>
                     </div>
@@ -31,7 +31,7 @@ export default function Footer() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="text-sm text-warm-500 hover:text-warm-700 transition-colors"
+                                className="text-sm text-warm-600 hover:text-warm-700 transition-colors"
                             >
                                 {item.name}
                             </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-full border border-warm-300 flex items-center justify-center text-warm-500 hover:text-warm-700 hover:border-warm-400 transition-colors"
+                        className="w-9 h-9 rounded-full border border-warm-300 flex items-center justify-center text-warm-600 hover:text-warm-700 hover:border-warm-400 transition-colors"
                         aria-label="Instagram"
                     >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

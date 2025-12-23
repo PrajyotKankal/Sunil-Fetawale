@@ -140,12 +140,12 @@ export default function ProductDetailClient({ initialProduct }) {
             {/* Breadcrumb */}
             <div className="bg-warm-50 border-b border-warm-200/50 py-4">
                 <div className="container-custom">
-                    <nav className="flex items-center space-x-2 text-sm text-warm-500">
+                    <nav className="flex items-center space-x-2 text-sm text-warm-600">
                         <Link href="/" className="hover:text-warm-700 transition-colors">Home</Link>
                         <span>/</span>
                         <Link href="/products" className="hover:text-warm-700 transition-colors">Products</Link>
                         <span>/</span>
-                        <span className="text-warm-700">{product.code}</span>
+                        <span className="text-warm-700 truncate max-w-[180px] inline-block">{product.title}</span>
                     </nav>
                 </div>
             </div>
@@ -193,8 +193,8 @@ export default function ProductDetailClient({ initialProduct }) {
                                             <div
                                                 key={idx}
                                                 className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === selectedImage
-                                                        ? 'bg-maroon-600 scale-110'
-                                                        : 'bg-warm-300/80 backdrop-blur-sm'
+                                                    ? 'bg-maroon-600 scale-110'
+                                                    : 'bg-warm-300/80 backdrop-blur-sm'
                                                     }`}
                                             />
                                         ))}
@@ -297,7 +297,7 @@ export default function ProductDetailClient({ initialProduct }) {
 
                             {/* Share Buttons */}
                             <div className="mt-6 pt-6 border-t border-warm-200/50">
-                                <p className="text-sm text-warm-500 mb-3">Share this product</p>
+                                <p className="text-sm text-warm-600 mb-3">Share this product</p>
                                 <div className="flex gap-2">
                                     <button
                                         onClick={copyLink}
@@ -348,7 +348,7 @@ export default function ProductDetailClient({ initialProduct }) {
                             <motion.div variants={fadeIn}>
                                 <Link
                                     href={`/products?category=${product.category}`}
-                                    className="inline-block text-sm text-warm-500 uppercase tracking-wider hover:text-maroon-600 transition-colors mb-4"
+                                    className="inline-block text-sm text-warm-600 uppercase tracking-wider hover:text-maroon-600 transition-colors mb-4"
                                 >
                                     {categoryNames[product.category] || product.category}
                                 </Link>
@@ -357,7 +357,7 @@ export default function ProductDetailClient({ initialProduct }) {
                             {/* Product Title */}
                             <motion.h1
                                 variants={fadeIn}
-                                className="font-serif text-4xl md:text-5xl lg:text-6xl text-warm-900 mb-4 leading-tight"
+                                className="font-serif text-2xl md:text-3xl lg:text-4xl text-warm-900 mb-4 leading-tight"
                             >
                                 {product.title}
                             </motion.h1>
@@ -383,7 +383,9 @@ export default function ProductDetailClient({ initialProduct }) {
 
                             {/* Product Details Accordion */}
                             <motion.div variants={fadeIn} className="space-y-4 mb-10">
-                                <DetailsAccordion title="Description" defaultOpen>
+                                {/* Description - shown directly */}
+                                <div className="mb-6">
+                                    <h3 className="font-serif text-lg text-warm-900 mb-3">Description</h3>
                                     <p className="text-warm-700 leading-relaxed">
                                         {product.description}
                                     </p>
@@ -391,7 +393,7 @@ export default function ProductDetailClient({ initialProduct }) {
                                         Handcrafted with precision, this piece matches traditional elegance with modern comfort.
                                         Perfect for weddings, festivals, and special occasions.
                                     </p>
-                                </DetailsAccordion>
+                                </div>
 
                                 <DetailsAccordion title="Product Details">
                                     <ul className="space-y-2 text-sm text-warm-700">

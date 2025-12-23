@@ -67,12 +67,12 @@ export default function ProductsPage() {
                             {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'}
                         </p>
 
-                        <div className="flex flex-wrap gap-2 md:gap-3">
+                        <div className="flex overflow-x-auto gap-2 md:gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap scrollbar-hide">
                             {categories.map((category) => (
                                 <button
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category.id
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0 whitespace-nowrap ${selectedCategory === category.id
                                         ? 'bg-maroon-600 text-white'
                                         : 'bg-warm-100 text-warm-700 hover:bg-warm-200'
                                         }`}
