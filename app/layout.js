@@ -92,8 +92,8 @@ export const metadata = {
     },
     category: 'Wedding Accessories',
     icons: {
-        icon: '/logo.png',
-        apple: '/logo.png',
+        icon: '/favicon.png',
+        apple: '/favicon.png',
     },
     appleWebApp: {
         capable: true,
