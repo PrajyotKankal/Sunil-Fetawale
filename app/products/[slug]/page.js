@@ -1,18 +1,39 @@
 import ProductDetailClient from '@/components/products/ProductDetailClient'
 import { notFound } from 'next/navigation'
+import { connectToDatabase } from '@/lib/mongodb'
+import Product from '@/models/Product'
+
+// Fetch data directly from database (works reliably in production)
+async function getProduct(slug) {
+    try {
+        await connectToDatabase()
+
+        // Try to find by slug first, then by _id
+        let product = await Product.findOne({ slug }).lean()
+        if (!product && slug.match(/^[0-9a-fA-F]{24}$/)) {
+            product = await Product.findById(slug).lean()
+        }
+
+        if (!product) return null
+
+        // Convert MongoDB _id to string for serialization
+        return JSON.parse(JSON.stringify(product))
+    } catch (error) {
+        console.error('Error fetching product:', error)
+        return null
+    }
+}
 
 // Server Component: Fetches data for SEO tags
 export async function generateMetadata({ params }) {
-    // Await params if necessary in newer Next.js versions, 
-    // but in current stable generic app router usage params is usually just an object.
-    const slug = params.slug
+    const { slug } = await params
 
     try {
         const product = await getProduct(slug)
         if (!product) return { title: 'Product Not Found' }
 
         const title = `${product.title} | Sunil Phetawale`
-        const description = product.description.substring(0, 160)
+        const description = product.description?.substring(0, 160) || 'Premium wedding accessories'
         const imageUrl = product.images?.[0]?.url || 'https://sunilphetawale.com/og-image.jpg'
 
         return {
@@ -38,22 +59,8 @@ export async function generateMetadata({ params }) {
     }
 }
 
-// Fetch data on the server
-async function getProduct(slug) {
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/products/${slug}`, {
-            next: { revalidate: 60 } // Revalidate every minute
-        })
-        if (!res.ok) return null
-        return res.json()
-    } catch (error) {
-        console.error('Error fetching product:', error)
-        return null
-    }
-}
-
 export default async function ProductPage({ params }) {
-    const slug = params.slug
+    const { slug } = await params
     const product = await getProduct(slug)
 
     if (!product) {
