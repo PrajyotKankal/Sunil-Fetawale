@@ -2,6 +2,11 @@ import { Inter, Cormorant_Garamond, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { CartProvider } from '@/context/CartContext'
+import CartDrawer from '@/components/layout/CartDrawer'
+import WelcomeBack from '@/components/common/WelcomeBack'
+import GoogleAnalytics from '@/components/common/GoogleAnalytics'
+import SmoothScroll from '@/components/providers/SmoothScroll'
 
 // Font configurations
 const inter = Inter({
@@ -92,8 +97,8 @@ export const metadata = {
     },
     category: 'Wedding Accessories',
     icons: {
-        icon: '/logo-512.png',
-        apple: '/apple-touch-icon.png',
+        icon: '/pwa-icon.jpg',
+        apple: '/pwa-icon.jpg',
     },
     appleWebApp: {
         capable: true,
@@ -115,12 +120,9 @@ export const viewport = {
     ],
 }
 
-import { CartProvider } from '@/context/CartContext'
-import CartDrawer from '@/components/layout/CartDrawer'
-import WelcomeBack from '@/components/common/WelcomeBack'
-import GoogleAnalytics from '@/components/common/GoogleAnalytics'
 
-// ... (Metadata export remains unchanged)
+
+
 
 export default function RootLayout({ children }) {
     // JSON-LD Structured Data for SEO
@@ -139,24 +141,26 @@ export default function RootLayout({ children }) {
             </head>
             <body className="min-h-screen flex flex-col bg-ivory-50 text-warm-800 antialiased">
                 <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID || 'G-QVW30LHXDS'} />
-                <CartProvider>
-                    {/* Header */}
-                    <Header />
+                <SmoothScroll>
+                    <CartProvider>
+                        {/* Header */}
+                        <Header />
 
-                    {/* Main Content */}
-                    <main className="flex-1">
-                        {children}
-                    </main>
+                        {/* Main Content */}
+                        <main className="flex-1">
+                            {children}
+                        </main>
 
-                    {/* Footer */}
-                    <Footer />
+                        {/* Footer */}
+                        <Footer />
 
-                    {/* Global Cart Drawer */}
-                    <CartDrawer />
+                        {/* Global Cart Drawer */}
+                        <CartDrawer />
 
-                    {/* Welcome Back Greeting for Returning Visitors */}
-                    <WelcomeBack />
-                </CartProvider>
+                        {/* Welcome Back Greeting for Returning Visitors */}
+                        <WelcomeBack />
+                    </CartProvider>
+                </SmoothScroll>
             </body>
         </html>
     )

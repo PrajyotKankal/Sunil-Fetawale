@@ -9,15 +9,15 @@ export default function manifest() {
         theme_color: '#7f1d1d',
         icons: [
             {
-                src: '/logo-512.png',
+                src: '/pwa-icon.jpg',
                 sizes: '192x192',
-                type: 'image/png',
+                type: 'image/jpeg',
                 purpose: 'any maskable',
             },
             {
-                src: '/logo-512.png',
+                src: '/pwa-icon.jpg',
                 sizes: '512x512',
-                type: 'image/png',
+                type: 'image/jpeg',
                 purpose: 'any maskable',
             },
         ],

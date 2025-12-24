@@ -37,13 +37,13 @@ export default function ProductCard({ product, index = 0 }) {
             <div className="group h-full bg-white border border-warm-200/80 rounded-lg overflow-hidden transition-all duration-400 hover:border-warm-300">
                 {/* Clickable Image Area */}
                 <Link href={`/products/${productSlug}`}>
-                    <div className="relative aspect-square bg-ivory-100 overflow-hidden cursor-pointer">
+                    <div className="relative aspect-square bg-ivory-100 overflow-hidden cursor-pointer transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl rounded-t-lg">
                         {imageUrl ? (
                             <Image
                                 src={imageUrl}
                                 alt={productTitle}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
                         ) : (
                             <div className="absolute inset-0 flex items-center justify-center">
@@ -53,15 +53,13 @@ export default function ProductCard({ product, index = 0 }) {
                             </div>
                         )}
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-warm-900/5 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-warm-900/10 to-transparent opacity-60" />
 
-                        <div className="absolute top-4 left-4">
-                            <span className="inline-block px-2.5 py-1 bg-warm-100/80 backdrop-blur-sm text-warm-600 rounded text-xs font-mono">
+                        <div className="absolute top-4 left-4 z-10">
+                            <span className="inline-block px-2.5 py-1 bg-white/90 backdrop-blur-md text-maroon-800 rounded text-xs font-mono shadow-sm">
                                 {product.code}
                             </span>
                         </div>
-
-                        <div className="absolute inset-0 bg-maroon-600/0 group-hover:bg-maroon-600/5 transition-all duration-400" />
                     </div>
                 </Link>
 
