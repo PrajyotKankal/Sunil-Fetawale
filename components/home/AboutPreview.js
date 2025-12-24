@@ -18,7 +18,8 @@ export default function AboutPreview() {
                         Craftsmanship Rooted in Tradition
                     </h2>
                     <p className="text-lg md:text-xl text-warm-600 leading-relaxed mb-8">
-                        We specialize in custom measurement-based wedding wear and accessories,
+                        <span className="float-left text-6xl md:text-7xl font-serif text-maroon-600 mr-3 mt-1 leading-none">W</span>
+                        e specialize in custom measurement-based wedding wear and accessories,
                         crafted with time-honored techniques. Every piece reflects our commitment to
                         traditional excellence and personalized service for your special day.
                     </p>

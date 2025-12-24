@@ -1,9 +1,18 @@
 'use client'
 
+import { useRef } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Hero() {
+    // Parallax effect setup
+    const sectionRef = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"]
+    })
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+
     // Animation variants - subtle and elegant
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -29,9 +38,12 @@ export default function Hero() {
     }
 
     return (
-        <section className="relative bg-ivory-50 overflow-hidden">
-            {/* Subtle background accent - optional decorative element */}
-            <div className="absolute inset-0 bg-gradient-to-b from-ivory-100 to-ivory-50 opacity-50" />
+        <section ref={sectionRef} className="relative bg-ivory-50 overflow-hidden">
+            {/* Parallax background - moves slower than content for depth */}
+            <motion.div
+                style={{ y: backgroundY }}
+                className="absolute inset-0 bg-gradient-to-b from-ivory-100 to-ivory-50 opacity-50"
+            />
 
             <div className="relative container-custom section-spacing">
                 <motion.div

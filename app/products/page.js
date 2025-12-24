@@ -8,6 +8,7 @@ export default function ProductsPage() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [selectedCategory, setSelectedCategory] = useState('all')
+    const [searchQuery, setSearchQuery] = useState('')
 
     const categories = [
         { id: 'all', name: 'All Products' },
@@ -35,9 +36,16 @@ export default function ProductsPage() {
         }
     }
 
-    const filteredProducts = selectedCategory === 'all'
-        ? products
-        : products.filter(product => product.category === selectedCategory)
+    // Filter by category and search query
+    const filteredProducts = products.filter(product => {
+        const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
+        const matchesSearch = searchQuery === '' ||
+            product.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.code?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.description?.toLowerCase().includes(searchQuery.toLowerCase())
+        return matchesCategory && matchesSearch
+    })
 
     return (
         <div className="bg-ivory-50 min-h-screen">
@@ -59,12 +67,45 @@ export default function ProductsPage() {
                 </div>
             </section>
 
-            {/* Category Filter */}
+            {/* Search and Category Filter */}
             <section className="bg-white border-b border-warm-200/50 py-6 sticky top-[73px] z-40">
                 <div className="container-custom">
+                    {/* Search Bar */}
+                    <div className="mb-4">
+                        <div className="relative max-w-md">
+                            <svg
+                                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-warm-400"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input
+                                type="text"
+                                placeholder="Search products by name or code..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full pl-12 pr-4 py-3 rounded-xl border border-warm-200 bg-warm-50 focus:bg-white focus:border-maroon-300 focus:ring-2 focus:ring-maroon-100 outline-none transition-all text-warm-800 placeholder:text-warm-400"
+                            />
+                            {searchQuery && (
+                                <button
+                                    onClick={() => setSearchQuery('')}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-warm-400 hover:text-warm-600"
+                                >
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Category Pills */}
                     <div className="flex items-center justify-between">
                         <p className="text-sm text-warm-600 hidden md:block">
                             {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'}
+                            {searchQuery && ` for "${searchQuery}"`}
                         </p>
 
                         <div className="flex overflow-x-auto gap-2 md:gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap scrollbar-hide">

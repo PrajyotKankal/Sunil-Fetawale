@@ -5,6 +5,8 @@ export default function Footer() {
         { name: 'Home', href: '/' },
         { name: 'Products', href: '/products' },
         { name: 'Gallery', href: '/gallery' },
+        { name: 'About', href: '/about' },
+        { name: 'FAQ', href: '/faq' },
         { name: 'Wholesale', href: '/wholesale' },
         { name: 'Contact', href: '/contact' },
     ]
@@ -54,12 +56,22 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* Copyright */}
+            {/* Copyright & Legal */}
             <div className="border-t border-warm-200/40">
                 <div className="container-custom py-5">
-                    <p className="text-xs text-warm-400 text-center">
-                        © {new Date().getFullYear()} Sunil Fetawale. All rights reserved.
-                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <p className="text-xs text-warm-400">
+                            © {new Date().getFullYear()} Sunil Fetawale. All rights reserved.
+                        </p>
+                        <div className="flex gap-6">
+                            <Link href="/privacy" className="text-xs text-warm-400 hover:text-warm-600 transition-colors">
+                                Privacy Policy
+                            </Link>
+                            <Link href="/terms" className="text-xs text-warm-400 hover:text-warm-600 transition-colors">
+                                Terms & Conditions
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

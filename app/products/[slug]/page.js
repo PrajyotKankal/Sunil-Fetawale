@@ -24,7 +24,21 @@ async function getProduct(slug) {
     }
 }
 
-// Server Component: Fetches data for SEO tags
+// Generate Static Params for SSG
+export async function generateStaticParams() {
+    try {
+        await connectToDatabase()
+        const products = await Product.find({}).select('slug').limit(20).lean() // Limit to recent 20 for build speed, others will fallback
+
+        return products.map((product) => ({
+            slug: product.slug,
+        }))
+    } catch (e) {
+        console.error('Error generating static params:', e)
+        return []
+    }
+}
+
 export async function generateMetadata({ params }) {
     const { slug } = await params
 

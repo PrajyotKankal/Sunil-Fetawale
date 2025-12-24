@@ -49,15 +49,15 @@ export const metadata = {
     authors: [{ name: 'Sunil Phetawale' }],
     creator: 'Sunil Phetawale',
     publisher: 'Sunil Phetawale',
-    metadataBase: new URL('https://sunilphetawale.com'),
+    metadataBase: new URL('https://sunilfetawale.vercel.app'),
     alternates: {
         canonical: '/',
     },
     openGraph: {
         type: 'website',
         locale: 'en_IN',
-        url: 'https://sunilphetawale.com',
-        title: 'Bridal Ghunghat & Wedding Dupatta | Sunil Phetawale',
+        url: 'https://sunilfetawale.vercel.app',
+        title: 'Bridal Ghunghat & Wedding Dupatta | Sunil Fetawale',
         description: 'Premium handcrafted bridal ghunghats, groom shawls, and baraat accessories. Custom wedding wear from Maharashtra, India.',
         siteName: 'Sunil Phetawale Wedding Accessories',
         images: [
@@ -92,8 +92,8 @@ export const metadata = {
     },
     category: 'Wedding Accessories',
     icons: {
-        icon: '/favicon.png',
-        apple: '/favicon.png',
+        icon: '/logo-512.png',
+        apple: '/apple-touch-icon.png',
     },
     appleWebApp: {
         capable: true,
@@ -117,6 +117,8 @@ export const viewport = {
 
 import { CartProvider } from '@/context/CartContext'
 import CartDrawer from '@/components/layout/CartDrawer'
+import WelcomeBack from '@/components/common/WelcomeBack'
+import GoogleAnalytics from '@/components/common/GoogleAnalytics'
 
 // ... (Metadata export remains unchanged)
 
@@ -136,6 +138,7 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body className="min-h-screen flex flex-col bg-ivory-50 text-warm-800 antialiased">
+                <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID} />
                 <CartProvider>
                     {/* Header */}
                     <Header />
@@ -150,6 +153,9 @@ export default function RootLayout({ children }) {
 
                     {/* Global Cart Drawer */}
                     <CartDrawer />
+
+                    {/* Welcome Back Greeting for Returning Visitors */}
+                    <WelcomeBack />
                 </CartProvider>
             </body>
         </html>

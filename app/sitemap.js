@@ -2,7 +2,7 @@ import { connectToDatabase } from '@/lib/mongodb'
 import Product from '@/models/Product'
 
 export default async function sitemap() {
-    const baseUrl = 'https://sunilphetawale.com'
+    const baseUrl = 'https://sunilfetawale.vercel.app'
 
     // Static pages
     const staticPages = [
@@ -25,6 +25,18 @@ export default async function sitemap() {
             priority: 0.7,
         },
         {
+            url: `${baseUrl}/about`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+        {
+            url: `${baseUrl}/faq`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.5,
+        },
+        {
             url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
@@ -35,6 +47,18 @@ export default async function sitemap() {
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/privacy`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/terms`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
         },
     ]
 
