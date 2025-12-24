@@ -138,7 +138,7 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body className="min-h-screen flex flex-col bg-ivory-50 text-warm-800 antialiased">
-                <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID} />
+                <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID || 'G-QVW30LHXDS'} />
                 <CartProvider>
                     {/* Header */}
                     <Header />
