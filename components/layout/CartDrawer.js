@@ -11,11 +11,12 @@ export default function CartDrawer() {
     // Calculate WhatsApp Message
     const getWhatsAppLink = () => {
         const phone = '917020708747'
-        let text = "Hi Sunil Phetawale, I am interested in inquiring about the following products:%0A%0A"
+        const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://sunilfetawale.vercel.app'
+        let text = "Hi Sunil Fetawale, I am interested in inquiring about the following products:%0A%0A"
 
         cart.forEach((item, index) => {
             text += `${index + 1}. *${item.title}* (Code: ${item.code})%0A`
-            text += `   Link: https://sunilphetawale.com/products/${item.slug}%0A%0A`
+            text += `   Link: ${baseUrl}/products/${item.slug}%0A%0A`
         })
 
         text += "Please let me know the pricing and availability."
