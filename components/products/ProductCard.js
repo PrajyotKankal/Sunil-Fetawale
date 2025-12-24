@@ -73,10 +73,6 @@ export default function ProductCard({ product, index = 0 }) {
                         </h3>
                     </Link>
 
-                    <p className="hidden md:block text-sm text-warm-600 leading-relaxed mb-4 line-clamp-1">
-                        {product.description}
-                    </p>
-
                     {/* Product code on mobile, Request Quote on desktop */}
                     <div className="md:hidden text-xs text-warm-600 mb-2">
                         {product.code}

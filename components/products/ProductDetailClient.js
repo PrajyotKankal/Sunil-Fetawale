@@ -384,41 +384,15 @@ export default function ProductDetailClient({ initialProduct }) {
 
                             {/* Product Details Accordion */}
                             <motion.div variants={fadeIn} className="space-y-4 mb-10">
-                                {/* Description - truncated with Read more */}
+                                {/* Description */}
                                 <div className="mb-6">
                                     <h3 className="font-serif text-lg text-warm-900 mb-3">Description</h3>
-                                    <div className="relative">
-                                        <p className={`text-warm-700 leading-relaxed ${!descriptionExpanded ? 'line-clamp-3' : ''}`}>
-                                            {product.description}
-                                            {descriptionExpanded && (
-                                                <span className="block mt-3">
-                                                    Handcrafted with precision, this piece combines traditional elegance with modern comfort. Perfect for weddings, festivals, and special occasions.
-                                                </span>
-                                            )}
-                                        </p>
-                                        {product.description && product.description.length > 150 && (
-                                            <button
-                                                onClick={() => setDescriptionExpanded(!descriptionExpanded)}
-                                                className="mt-2 text-sm font-medium text-maroon-600 hover:text-maroon-700 transition-colors flex items-center gap-1"
-                                            >
-                                                {descriptionExpanded ? (
-                                                    <>
-                                                        Show less
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                                                        </svg>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        Read more
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                                        </svg>
-                                                    </>
-                                                )}
-                                            </button>
-                                        )}
-                                    </div>
+                                    <p className="text-warm-700 leading-relaxed">
+                                        {product.description}
+                                    </p>
+                                    <p className="text-warm-700 leading-relaxed mt-4">
+                                        Handcrafted with precision, this piece combines traditional elegance with modern comfort. Perfect for weddings, festivals, and special occasions.
+                                    </p>
                                 </div>
 
                                 <DetailsAccordion title="Product Details">
