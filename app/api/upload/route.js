@@ -14,7 +14,7 @@ export async function POST(request) {
 
         const { category } = await request.json()
 
-        if (!category || !['bridal', 'groom', 'baraat'].includes(category)) {
+        if (!category || !['bridal', 'groom', 'baraat', 'gallery'].includes(category)) {
             return NextResponse.json(
                 { error: 'Valid category required' },
                 { status: 400 }
