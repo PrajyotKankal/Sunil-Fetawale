@@ -12,7 +12,7 @@ export default function CartDrawer() {
     const getWhatsAppLink = () => {
         const phone = '917020708747'
         const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://sunilfetawale.vercel.app'
-        let text = "Hi Sunil Fetawale, I am interested in inquiring about the following products:%0A%0A"
+        let text = "Hi Sunil Collection, I am interested in inquiring about the following products:%0A%0A"
 
         cart.forEach((item, index) => {
             text += `${index + 1}. *${item.title}* (Code: ${item.code})%0A`

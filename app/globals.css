@@ -11,17 +11,22 @@
    CSS Custom Properties
    =================================== */
 :root {
-    /* Colors */
+    /* Cream-Ivory Palette */
     --color-primary: #8B2635;
-    --color-accent: #D4AF37;
-    --color-surface: #E8D5C4;
-    --color-background: #FEFDFB;
-    --color-text: #292524;
-    --color-text-light: #57534E;
+    --color-primary-hover: #7A1F2D;
+    --color-accent-gold: #D4AF37;
+    --color-accent-gold-muted: #A6861F;
+    --color-surface: #FAF8F5;
+    --color-surface-alt: #F5F2EE;
+    --color-background: #FFFFFF;
+    --color-text-dark: #2D1C1C;
+    --color-text-body: rgba(87,65,55,0.85);
+    --color-text-muted: rgba(87,65,55,0.5);
 
-    /* Shadows - Soft, elegant */
-    --shadow-soft: 0 4px 8px 0 rgba(139, 38, 53, 0.05), 0 2px 4px 0 rgba(139, 38, 53, 0.04);
-    --shadow-soft-md: 0 6px 12px 0 rgba(139, 38, 53, 0.06), 0 2px 4px 0 rgba(139, 38, 53, 0.04);
+    /* Shadows — warm, soft */
+    --shadow-soft: 0 2px 16px rgba(87,65,55,0.07);
+    --shadow-soft-md: 0 4px 28px rgba(87,65,55,0.1);
+    --shadow-gold: 0 2px 12px rgba(212,175,55,0.15);
 
     /* Transitions */
     --transition-elegant: cubic-bezier(0.4, 0, 0.2, 1);
@@ -55,7 +60,10 @@
 
     /* Body defaults */
     body {
-        @apply bg-ivory-50 text-warm-800 font-sans antialiased;
+        @apply antialiased;
+        background-color: #FAF8F5;
+        color: rgba(68,52,48,0.85);
+        font-family: var(--font-inter), system-ui, sans-serif;
         font-feature-settings: 'kern' 1, 'liga' 1;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

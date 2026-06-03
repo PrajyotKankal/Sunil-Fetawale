@@ -61,7 +61,10 @@ export async function POST(request) {
             const prefixMap = {
                 'bridal': 'BRD',
                 'groom': 'GRM',
-                'baraat': 'BRT'
+                'baraat': 'BRT',
+                'shela': 'SHL',
+                'shawl': 'SWL',
+                'samman': 'SMN',
             }
             const prefix = prefixMap[category] || 'PRD'
 

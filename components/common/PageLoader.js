@@ -31,7 +31,7 @@ export default function PageLoader() {
                 >
                     <Image
                         src="/logo-512.png"
-                        alt="Sunil Fetawale"
+                        alt="Sunil Collection"
                         fill
                         className="object-contain"
                         priority
@@ -46,7 +46,7 @@ export default function PageLoader() {
                 transition={{ delay: 0.3, duration: 0.4 }}
                 className="font-serif text-xl md:text-2xl text-warm-800 mt-6"
             >
-                Sunil Fetawale
+                Sunil Collection
             </motion.h1>
 
             {/* Loading Indicator */}

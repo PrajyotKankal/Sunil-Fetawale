@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
     title: 'Terms & Conditions',
-    description: 'Terms and Conditions for using Sunil Fetawale website and services. Read about ordering, payments, refunds, and more.',
+    description: 'Terms and Conditions for using Sunil Collection website and services. Read about ordering, payments, refunds, and more.',
 }
 
 export default function TermsPage() {
@@ -73,7 +73,7 @@ export default function TermsPage() {
                         <h2 className="font-serif text-2xl text-warm-800 mb-4">7. Intellectual Property</h2>
                         <p className="text-warm-700 mb-8">
                             All content on this website including images, designs, and text are the property
-                            of Sunil Fetawale and are protected by copyright laws. You may not reproduce or
+                            of Sunil Collection and are protected by copyright laws. You may not reproduce or
                             distribute our content without written permission.
                         </p>
 

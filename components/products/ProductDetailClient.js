@@ -263,7 +263,7 @@ export default function ProductDetailClient({ initialProduct }) {
                                             <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-16 rotate-[-30deg] scale-150 opacity-[0.08]">
                                                 {[...Array(12)].map((_, i) => (
                                                     <span key={i} className="text-2xl md:text-3xl font-bold text-warm-900 whitespace-nowrap select-none">
-                                                        Sunil Phetawale
+                                                        Sunil Collection
                                                     </span>
                                                 ))}
                                             </div>
@@ -306,7 +306,7 @@ export default function ProductDetailClient({ initialProduct }) {
                                                 try {
                                                     await navigator.share({
                                                         title: product.title,
-                                                        text: `Check out ${product.title} from Sunil Fetawale`,
+                                                        text: `Check out ${product.title} from Sunil Collection`,
                                                         url: window.location.href,
                                                     })
                                                 } catch (err) {

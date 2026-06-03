@@ -1,7 +1,7 @@
 // Robots.txt configuration for search engines
 
 export default function robots() {
-    const baseUrl = 'https://sunilphetawale.com'
+    const baseUrl = 'https://sunilfetawale.vercel.app'
 
     return {
         rules: [

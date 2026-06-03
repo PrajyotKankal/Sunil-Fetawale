@@ -60,6 +60,13 @@ export default async function sitemap() {
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        // Local SEO landing page — high priority for Latur searches
+        {
+            url: `${baseUrl}/latur-wedding-accessories`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
     ]
 
     // Fetch dynamic product pages directly from DB (works during build time)

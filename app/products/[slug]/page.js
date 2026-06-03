@@ -46,7 +46,7 @@ export async function generateMetadata({ params }) {
         const product = await getProduct(slug)
         if (!product) return { title: 'Product Not Found' }
 
-        const title = `${product.title} | Sunil Phetawale`
+        const title = `${product.title} | Sunil Collection`
         const description = product.description?.substring(0, 160) || 'Premium wedding accessories'
         const imageUrl = product.images?.[0]?.url || 'https://sunilphetawale.com/og-image.jpg'
 
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }) {
         }
     } catch (error) {
         return {
-            title: 'Wedding Product | Sunil Phetawale',
+            title: 'Wedding Product | Sunil Collection',
             description: 'Exclusive wedding accessories for bride and groom.',
         }
     }
@@ -91,7 +91,7 @@ export default async function ProductPage({ params }) {
         sku: product.code,
         brand: {
             '@type': 'Brand',
-            name: 'Sunil Phetawale'
+            name: 'Sunil Collection'
         },
         offers: {
             '@type': 'Offer',
@@ -100,7 +100,7 @@ export default async function ProductPage({ params }) {
             priceCurrency: 'INR',
             seller: {
                 '@type': 'Organization',
-                name: 'Sunil Phetawale'
+                name: 'Sunil Collection'
             }
         }
     }

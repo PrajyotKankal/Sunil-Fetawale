@@ -1,7 +1,7 @@
 export default function manifest() {
     return {
-        name: 'Sunil Fetawale',
-        short_name: 'Sunil Fetawale',
+        name: 'Sunil Collection',
+        short_name: 'Sunil Collection',
         description: 'Premium Wedding Wear & Accessories',
         start_url: '/',
         display: 'standalone',

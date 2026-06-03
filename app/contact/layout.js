@@ -2,7 +2,7 @@ export const metadata = {
     title: 'Contact Us',
     description: 'Discuss custom feta and wedding dupatta orders. Reach us via WhatsApp, phone, or email. Located in Mumbai, Maharashtra.',
     openGraph: {
-        title: 'Contact Us | Sunil Fetawale',
+        title: 'Contact Us | Sunil Collection',
         description: 'Discuss custom wedding orders. Reach us via WhatsApp, phone, or email.',
     },
 }

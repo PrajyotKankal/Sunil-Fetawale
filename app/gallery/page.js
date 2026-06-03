@@ -124,7 +124,7 @@ export default function GalleryPage() {
                                         <div className="relative">
                                             <Image
                                                 src={getDisplayUrl(image.url)}
-                                                alt={image.caption || 'Sunil Fetawale Gallery'}
+                                                alt={image.caption || 'Sunil Collection Gallery'}
                                                 width={500}
                                                 height={500}
                                                 className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"

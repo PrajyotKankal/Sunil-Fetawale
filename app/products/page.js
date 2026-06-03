@@ -13,8 +13,11 @@ export default function ProductsPage() {
     const categories = [
         { id: 'all', name: 'All Products' },
         { id: 'bridal', name: 'Bridal Ghunghat' },
-        { id: 'groom', name: 'Groom Shawls' },
+        { id: 'groom', name: 'Groom Pheta' },
         { id: 'baraat', name: 'Baraat Accessories' },
+        { id: 'shela', name: 'Shela' },
+        { id: 'shawl', name: 'Shawl' },
+        { id: 'samman', name: 'Samman' },
     ]
 
     useEffect(() => {

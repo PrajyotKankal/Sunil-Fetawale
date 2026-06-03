@@ -28,7 +28,7 @@ export default function AboutPage() {
                         variants={fadeIn}
                         className="font-display text-4xl md:text-5xl lg:text-6xl text-warm-800 mb-6"
                     >
-                        About Sunil Fetawale
+                        About Sunil Collection
                     </motion.h1>
                     <motion.p
                         initial="hidden"
@@ -53,8 +53,8 @@ export default function AboutPage() {
                             className="prose prose-lg prose-warm mx-auto"
                         >
                             <p className="text-warm-700 leading-relaxed mb-6">
-                                <span className="float-left text-6xl font-serif text-maroon-600 mr-3 mt-1 leading-none">F</span>
-                                or over three decades, the Fetawale family has been crafting exquisite wedding accessories
+                                <span className="float-left text-6xl font-serif text-maroon-600 mr-3 mt-1 leading-none">S</span>
+                                unil Collection has been crafting exquisite wedding accessories
                                 that blend traditional Maharashtrian artistry with contemporary elegance. What started as
                                 a small workshop in Maharashtra has grown into a trusted name for brides, grooms, and
                                 families across India.

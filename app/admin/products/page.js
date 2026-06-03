@@ -262,6 +262,9 @@ export default function AdminProductsPage() {
         bridal: products.filter(p => p.category === 'bridal').length,
         groom: products.filter(p => p.category === 'groom').length,
         baraat: products.filter(p => p.category === 'baraat').length,
+        shela: products.filter(p => p.category === 'shela').length,
+        shawl: products.filter(p => p.category === 'shawl').length,
+        samman: products.filter(p => p.category === 'samman').length,
         featured: products.filter(p => p.featured).length,
     }
 
@@ -327,26 +330,38 @@ export default function AdminProductsPage() {
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Stats Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
                     <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                        <p className="text-3xl font-bold text-gray-900">{stats.total}</p>
-                        <p className="text-sm text-gray-500">Total Products</p>
+                        <p className="text-2xl font-bold text-gray-900">{stats.total}</p>
+                        <p className="text-xs text-gray-500">Total</p>
                     </div>
                     <div className="bg-pink-50 rounded-xl p-4 border border-pink-200 shadow-sm">
-                        <p className="text-3xl font-bold text-pink-700">{stats.bridal}</p>
-                        <p className="text-sm text-pink-600">Bridal</p>
+                        <p className="text-2xl font-bold text-pink-700">{stats.bridal}</p>
+                        <p className="text-xs text-pink-600">Bridal</p>
                     </div>
                     <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 shadow-sm">
-                        <p className="text-3xl font-bold text-blue-700">{stats.groom}</p>
-                        <p className="text-sm text-blue-600">Groom</p>
+                        <p className="text-2xl font-bold text-blue-700">{stats.groom}</p>
+                        <p className="text-xs text-blue-600">Groom</p>
                     </div>
                     <div className="bg-orange-50 rounded-xl p-4 border border-orange-200 shadow-sm">
-                        <p className="text-3xl font-bold text-orange-700">{stats.baraat}</p>
-                        <p className="text-sm text-orange-600">Baraat</p>
+                        <p className="text-2xl font-bold text-orange-700">{stats.baraat}</p>
+                        <p className="text-xs text-orange-600">Baraat</p>
+                    </div>
+                    <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 shadow-sm">
+                        <p className="text-2xl font-bold text-purple-700">{stats.shela}</p>
+                        <p className="text-xs text-purple-600">Shela</p>
+                    </div>
+                    <div className="bg-teal-50 rounded-xl p-4 border border-teal-200 shadow-sm">
+                        <p className="text-2xl font-bold text-teal-700">{stats.shawl}</p>
+                        <p className="text-xs text-teal-600">Shawl</p>
+                    </div>
+                    <div className="bg-rose-50 rounded-xl p-4 border border-rose-200 shadow-sm">
+                        <p className="text-2xl font-bold text-rose-700">{stats.samman}</p>
+                        <p className="text-xs text-rose-600">Samman</p>
                     </div>
                     <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200 shadow-sm">
-                        <p className="text-3xl font-bold text-yellow-700">{stats.featured}</p>
-                        <p className="text-sm text-yellow-600">Featured</p>
+                        <p className="text-2xl font-bold text-yellow-700">{stats.featured}</p>
+                        <p className="text-xs text-yellow-600">Featured</p>
                     </div>
                 </div>
 
@@ -365,8 +380,8 @@ export default function AdminProductsPage() {
                                 className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
                             />
                         </div>
-                        <div className="flex gap-2">
-                            {['all', 'bridal', 'groom', 'baraat'].map(cat => (
+                        <div className="flex gap-2 flex-wrap">
+                            {['all', 'bridal', 'groom', 'baraat', 'shela', 'shawl', 'samman'].map(cat => (
                                 <button
                                     key={cat}
                                     onClick={() => setFilterCategory(cat)}
@@ -425,9 +440,14 @@ export default function AdminProductsPage() {
                                         </div>
                                     )}
                                     {/* Category Badge */}
-                                    <div className={`absolute top-2 right-2 text-xs font-medium px-2 py-1 rounded-full capitalize shadow-sm ${product.category === 'bridal' ? 'bg-pink-100 text-pink-700 border border-pink-200' :
+                                    <div className={`absolute top-2 right-2 text-xs font-medium px-2 py-1 rounded-full capitalize shadow-sm ${
+                                        product.category === 'bridal' ? 'bg-pink-100 text-pink-700 border border-pink-200' :
                                         product.category === 'groom' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
-                                            'bg-orange-100 text-orange-700 border border-orange-200'
+                                        product.category === 'baraat' ? 'bg-orange-100 text-orange-700 border border-orange-200' :
+                                        product.category === 'shela' ? 'bg-purple-100 text-purple-700 border border-purple-200' :
+                                        product.category === 'shawl' ? 'bg-teal-100 text-teal-700 border border-teal-200' :
+                                        product.category === 'samman' ? 'bg-rose-100 text-rose-700 border border-rose-200' :
+                                        'bg-gray-100 text-gray-700 border border-gray-200'
                                         }`}>
                                         {product.category}
                                     </div>
@@ -518,9 +538,12 @@ export default function AdminProductsPage() {
                                         onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
                                         className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
                                     >
-                                        <option value="bridal">Bridal</option>
-                                        <option value="groom">Groom</option>
-                                        <option value="baraat">Baraat</option>
+                                        <option value="bridal">Bridal Ghunghat</option>
+                                        <option value="groom">Groom Pheta</option>
+                                        <option value="baraat">Baraat Accessories</option>
+                                        <option value="shela">Shela</option>
+                                        <option value="shawl">Shawl</option>
+                                        <option value="samman">Samman</option>
                                     </select>
                                 </div>
                             </div>

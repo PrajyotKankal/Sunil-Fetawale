@@ -21,7 +21,7 @@ const ProductSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['bridal', 'groom', 'baraat'],
+        enum: ['bridal', 'groom', 'baraat', 'shela', 'shawl', 'samman'],
         required: true,
     },
     colorGroup: {

@@ -1,8 +1,8 @@
 export const metadata = {
     title: 'About Us',
-    description: 'Learn about Sunil Fetawale - three generations of craftsmanship dedicated to creating premium wedding accessories. Handcrafted phetas, ghunghats, and dupattas from Maharashtra.',
+    description: 'Learn about Sunil Collection - dedicated to creating premium handcrafted wedding accessories. Phetas, ghunghats, and dupattas from Maharashtra.',
     openGraph: {
-        title: 'About Sunil Fetawale | Premium Wedding Accessories',
+        title: 'About Sunil Collection | Premium Wedding Accessories',
         description: 'Three generations of craftsmanship dedicated to making your special day perfect.',
     },
 }

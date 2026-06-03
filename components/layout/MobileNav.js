@@ -58,7 +58,7 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                                     color: '#7B2D3A',
                                     letterSpacing: '-0.02em',
                                 }}>
-                                    Sunil Fetawale
+                                    Sunil Collection
                                 </span>
                                 <span style={{
                                     fontSize: '10px',
@@ -66,7 +66,7 @@ export default function MobileNav({ isOpen, onClose, navigation }) {
                                     letterSpacing: '0.15em',
                                     textTransform: 'uppercase',
                                 }}>
-                                    Wedding Wear & Accessories
+                                    Premium Wedding Accessories
                                 </span>
                             </div>
                             <button
